@@ -1,0 +1,109 @@
+body{
+    background-color: #10002b;
+    font-family: "Nunito", sans-serif;
+}
+
+/* navbar */
+#mainNavbar{
+    font-size: 1.7rem;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+#mainNavbar .navbar-brand {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: #9d4edd;
+}
+
+#mainNavbar .nav-link{
+    color: white;
+}
+
+#mainNavbar .nav-link:hover{
+    color: #9d4edd;
+}
+
+h1{
+    color: #c77dff;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 100;
+}
+
+.lead{
+    color: white;
+    font-weight: 100;
+    font-size: 1.125rem;
+    line-height: 2;
+}
+
+.box{
+  background-color: #240046;  
+ 
+}
+.boxx{
+  background-color: #3c096c;  
+ 
+}
+
+h2{
+    color: #c77dff;
+    text-transform: uppercase;
+    font-size: 1.9rem;
+    font-weight: 100;
+}
+h3{
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+
+.navbar.scrolled{
+    background-color: rgba(36, 0, 70, 0.7);
+    transition: background 500ms;
+}
+
+#imgg{
+    transition: transform 0.3s ease;
+}
+
+#imgg:hover{
+    transform: scale(1.05);
+}
+
+.card-title{
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+.card-text{
+    color: #e0aaff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.project img{
+    height: 100%;
+    width: 100%;
+    
+}
+
+.btn{
+    border-color: #9D4EDD;
+    color: #9D4EDD;
+    text-transform: uppercase;
+}
+.btn:hover, .btn:focus{
+    border-color: #7B2CBF;
+    color: white;
+    background-color: #7B2CBF;
+}
+
+.media svg{
+height: 40px;
+width: 40px;
+margin-left: 20px;
+
+}
