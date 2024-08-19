@@ -58,6 +58,7 @@ body {
     margin-bottom: 100px ;
 }
 
+
 .navbar.scrolled{
     background-color: #ccd5ae;
     transition: background 500ms;
@@ -73,6 +74,12 @@ body {
      }
 }
 
+@media only screen and ( max-width:767px){
+    .cont{
+        margin-top: 100px;
+        margin-bottom: 0px ;
+    }
+}
 /* #mainNavbar .navbar-brand{
    
   } */
