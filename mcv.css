@@ -151,6 +151,9 @@ margin-left: 20px;
     .boxx{
         margin: auto;
     }
+    .box{
+        background: linear-gradient(60deg, #240046, #3a004d);
+    }
 } 
 /* @media only screen and ( min-width:768px) and ( max-width:991px) {
 
