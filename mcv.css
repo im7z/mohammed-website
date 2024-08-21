@@ -93,6 +93,7 @@ h3{
     border-color: #9D4EDD;
     color: #9D4EDD;
     text-transform: uppercase;
+    transition:  all 0.3s ease;
 }
 .btn:hover, .btn:focus , .btn:active{
     border-color: #7B2CBF;
