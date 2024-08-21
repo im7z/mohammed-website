@@ -1,6 +1,6 @@
 body{
     /* background-color: #10002b; */
-    background: linear-gradient(135deg, #10002b, #29003f);
+    background: linear-gradient(45deg, #10002b, #29003f);
     font-family: "Nunito", sans-serif;
     margin: 0;
     padding: 0;
@@ -43,7 +43,7 @@ h1{
 
 .box{
   /* background-color: #240046;   */
-  background: linear-gradient(135deg, #240046, #3a004d);
+  background: linear-gradient(45deg, #240046, #3a004d);
  
 }
 
@@ -94,7 +94,7 @@ h3{
     color: #9D4EDD;
     text-transform: uppercase;
 }
-.btn:hover, .btn:focus{
+.btn:hover, .btn:focus , .btn:active{
     border-color: #7B2CBF;
     color: white;
     background-color: #7B2CBF;
@@ -151,9 +151,9 @@ margin-left: 20px;
     .boxx{
         margin: auto;
     }
-    .box{
-        background: linear-gradient(60deg, #240046, #3a004d);
-    }
+    /* .box{
+        background: linear-gradient(60 deg, #240046, #3a004d);
+    } */
 } 
 /* @media only screen and ( min-width:768px) and ( max-width:991px) {
 
