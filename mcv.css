@@ -1,5 +1,6 @@
 body{
-    background-color: #10002b;
+    /* background-color: #10002b; */
+    background: linear-gradient(135deg, #10002b, #29003f);
     font-family: "Nunito", sans-serif;
     margin: 0;
     padding: 0;
@@ -7,13 +8,13 @@ body{
 
 /* navbar */
 #mainNavbar{
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 100;
     text-transform: uppercase;
 }
 
 #mainNavbar .navbar-brand {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 400;
     color: #9d4edd;
 }
@@ -41,11 +42,8 @@ h1{
 }
 
 .box{
-  background-color: #240046;  
- 
-}
-.boxx{
-  background-color: #3c096c;  
+  /* background-color: #240046;   */
+  background: linear-gradient(135deg, #240046, #3a004d);
  
 }
 
@@ -139,6 +137,7 @@ margin-left: 20px;
     }
     h2 {
         font-size: 1.5rem;
+        margin-bottom: 15px;
     }
     h3 {
         font-size: 1.2rem;
@@ -148,6 +147,9 @@ margin-left: 20px;
     }
     #mainNavbar{
         font-size: 1.4rem;
+    }
+    .boxx{
+        margin: auto;
     }
 } 
 /* @media only screen and ( min-width:768px) and ( max-width:991px) {
