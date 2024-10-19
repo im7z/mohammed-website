@@ -5,18 +5,19 @@ html{
 
 
 body{
-    background-color: antiquewhite;
+    background-color: #f1faee;
     height: 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.cont{
-    background-color: black;
+.cont div{
+    background-color: #1d3557;
     width: 350px;
-    border: 1px inset ;
+    border: 2px solid black ;
     border-radius: 10px 10px 10px 10px ;
+
 }
 
 .cont button{
@@ -28,6 +29,7 @@ body{
    font-size: 20px;
    border-radius: 10px;
    color: black;
+   
    
 }
 
@@ -56,4 +58,20 @@ body{
 .row6{
     display: flex;
     
+}
+
+.col2{
+    background-color: #a8dadc;
+}
+
+.col1{
+    background-color: #f1faee;
+}
+
+.col3{
+    background-color: #457b9d;
+}
+
+.col4{
+    background-color: #e63946;
 }
