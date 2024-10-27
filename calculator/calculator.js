@@ -94,10 +94,21 @@ dell.addEventListener("click", () => {
 })
 
 point.addEventListener("click", () => {
-    if(num2.textContent !== ''){
-        num2.textContent += '.';
-    }else if(num1.textContent !== ''){
+    if(mark){
+        clear();
         num1.textContent += '.';
+    }else{
+
+
+    if(num2.textContent !== ''){
+        if(search(num2.textContent)){
+        num2.textContent += '.';
+        }
+    }else if(num1.textContent !== ''){
+        if(search(num1.textContent)){
+            num1.textContent += '.';
+            }
+    }
     }
 })
 
@@ -148,4 +159,13 @@ function cal(num1, num2, op) {
     return result;
 
 
+}
+
+
+function search(num){
+    if (num.includes('.')){
+        return false;
+    }else {
+        return true;
+    }
 }
