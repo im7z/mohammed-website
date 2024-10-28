@@ -94,12 +94,10 @@ dell.addEventListener("click", () => {
 })
 
 point.addEventListener("click", () => {
-    if(mark){
+    if(mark && op.textContent === ''){
         clear();
         num1.textContent += '.';
     }else{
-
-
     if(num2.textContent !== ''){
         if(search(num2.textContent)){
         num2.textContent += '.';
