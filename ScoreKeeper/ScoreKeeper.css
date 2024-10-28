@@ -12,6 +12,7 @@ body{
     justify-content: center;
     align-items: center;
     color: whitesmoke;
+    font-family: "Nunito", sans-serif;
 }
 
 .con{
@@ -55,6 +56,7 @@ button{
     text-transform: uppercase;
     font-weight: bold;
     color: aliceblue;
+    font-family: "Nunito", sans-serif;
 }
 
 button:disabled{
@@ -94,11 +96,11 @@ label{
 
 
 .win{
-    color: #4cc9f0;
+    color: #4cf065;
 }
 
 .lose{
-    color: #f72585;
+    color: #f72545;
 }
 
 p{

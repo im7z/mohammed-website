@@ -10,6 +10,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Nunito", sans-serif;
 }
 
 .cont div{
@@ -26,10 +27,10 @@ body{
    padding: 15px 20px;
    margin: 1px;
    font-weight: bold;
-   font-size: 20px;
+   font-size: 23px;
    border-radius: 10px;
    color: black;
-   
+   font-family: "Nunito", sans-serif;
    
 }
 
