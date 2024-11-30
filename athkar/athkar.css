@@ -42,7 +42,9 @@ body {
     font-size: 30px;
     margin-top: 150px;
     background-color: #a3b18a;
-    border-radius: 10%;
+    border-radius: 5px;
+    color: black;
+    border: 2px solid black;
 }
 
 .containerr {
@@ -55,9 +57,10 @@ body {
   .undo {
     position: absolute; /* Position the button independently */
     left: 20px; /* Push the button to the left of the container */
-    padding: 6px 20px;
+    padding: 3px 10px;
     background-color: #a3b18a;
-    border-radius: 10%;
+    border-radius: 5px;
+    border: 1.5px solid black;
   }
   
   

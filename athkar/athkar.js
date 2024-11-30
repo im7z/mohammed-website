@@ -65,8 +65,11 @@ const athkar = [
 
 counter.addEventListener("click", () => {
 
+    if(counter.classList.contains("btn-outline-success")){
     counter.classList.remove("btn-outline-success");
     counter.classList.add("btn-success");
+    }
+
     if (counter.textContent == athkar[flag].count) {
         counter.textContent = count;
     }
@@ -77,9 +80,7 @@ counter.addEventListener("click", () => {
     if (count == athkar[flag].count) {
         flag += 1;
         athkarr();
-        count = 0;
-        counter.classList.remove("btn-success");
-        counter.classList.add("btn-outline-success");
+        resett();
     }
 
 })
@@ -99,7 +100,7 @@ start.addEventListener("click", () => {
 undo.addEventListener("click", () => {
     goBack();
     flag = 0;
-    reset();
+    resett();
 })
 
 
@@ -128,8 +129,10 @@ function goBack() {
 
 
 function resett() {
+    if(counter.classList.contains("btn-success")){
     counter.classList.remove("btn-success");
     counter.classList.add("btn-outline-success");
+    }
     count = 0;
     counter.textContent = athkar[flag].count;
 }
