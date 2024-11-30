@@ -1,0 +1,142 @@
+const counter = document.querySelector(".counter");
+const reset = document.querySelector(".reset");
+const start = document.querySelector(".start");
+const text = document.querySelector(".text");
+const bs = document.querySelector(".bs");
+const head = document.querySelector(".head");
+const h1 = document.querySelector(".h1");
+const h2 = document.querySelector(".h2");
+const container = document.querySelector(".container");
+const undo = document.querySelector(".undo");
+
+let flag = 0;
+let count = 0;
+
+
+const athkar = [
+    {
+        b: "أَعُوذُ بِاللهِ مِنْ الشَّيْطَانِ الرَّجِيمِ",
+        text: "اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ لاَ تَأْخُذُهُ سِنَةٌ وَلاَ نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلاَّ بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلاَ يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلاَّ بِمَا شَاء وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالأَرْضَ وَلاَ يَؤُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ.",
+        count: 1
+    },
+    {
+        b: 'بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم',
+        text: 'قُلْ هُوَ ٱللَّهُ أَحَدٌ، ٱللَّهُ ٱلصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ.',
+        count: 3
+    },
+    {
+        b: "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم",
+        text: "قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ، مِن شَرِّ مَا خَلَقَ، وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ، وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ، وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ.",
+        count: 3
+    },
+    {
+        b: "بِسْمِ اللهِ الرَّحْمنِ الرَّحِيم",
+        text: "قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ، مَلِكِ ٱلنَّاسِ، إِلَٰهِ ٱلنَّاسِ، مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ، ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ، مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ.",
+        count: 3
+    },
+    {
+        b: "",
+        text: "اللّهـمَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ ، خَلَقْتَنـي وَأَنا عَبْـدُك ، وَأَنا عَلـى عَهْـدِكَ وَوَعْـدِكَ ما اسْتَـطَعْـت ، أَعـوذُبِكَ مِنْ شَـرِّ ما صَنَـعْت ، أَبـوءُ لَـكَ بِنِعْـمَتِـكَ عَلَـيَّ وَأَبـوءُ بِذَنْـبي فَاغْفـِرْ لي فَإِنَّـهُ لا يَغْـفِرُ الذُّنـوبَ إِلاّ أَنْتَ . ",
+        count: 1
+    },
+    {
+        b: "",
+        text: "بِسـمِ اللهِ الذي لا يَضُـرُّ مَعَ اسمِـهِ شَيءٌ في الأرْضِ وَلا في السّمـاءِ وَهـوَ السّمـيعُ العَلـيم.",
+        count: 3
+    },
+    {
+        b: "",
+        text: "أَعـوذُ بِكَلِمـاتِ اللّهِ التّـامّـاتِ مِنْ شَـرِّ ما خَلَـق.",
+        count: 3
+    },
+    {
+        b: "",
+        text: "سُبْحـانَ اللهِ وَبِحَمْـدِهِ عَدَدَ خَلْـقِه ، وَرِضـا نَفْسِـه ، وَزِنَـةَ عَـرْشِـه ، وَمِـدادَ كَلِمـاتِـه.",
+        count: 3
+    },
+    {
+        b: "",
+        text: "رَضيـتُ بِاللهِ رَبَّـاً وَبِالإسْلامِ ديـناً وَبِمُحَـمَّدٍ صلى الله عليه وسلم نَبِيّـاً. ",
+        count: 3
+    },
+
+];
+
+
+counter.addEventListener("click", () => {
+
+    counter.classList.remove("btn-outline-success");
+    counter.classList.add("btn-success");
+    if (counter.textContent == athkar[flag].count) {
+        counter.textContent = count;
+    }
+    if (counter.textContent < athkar[flag].count) {
+        counter.textContent = ++count;
+    }
+
+    if (count == athkar[flag].count) {
+        flag += 1;
+        athkarr();
+        count = 0;
+        counter.classList.remove("btn-success");
+        counter.classList.add("btn-outline-success");
+    }
+
+})
+
+
+reset.addEventListener("click", resett)
+
+start.addEventListener("click", () => {
+
+    comeBack();
+
+    athkarr();
+
+
+})
+
+undo.addEventListener("click", () => {
+    goBack();
+    flag = 0;
+    reset();
+})
+
+
+
+function comeBack() {
+    head.classList.remove("d-none");
+    h1.classList.remove("d-none");
+    h2.classList.remove("d-none");
+    counter.classList.remove("d-none");
+    reset.classList.remove("d-none");
+    container.classList.remove("d-none");
+    undo.classList.remove("d-none");
+    start.classList.add("d-none");
+}
+
+function goBack() {
+    head.classList.add("d-none");
+    h1.classList.add("d-none");
+    h2.classList.add("d-none");
+    counter.classList.add("d-none");
+    reset.classList.add("d-none");
+    container.classList.add("d-none");
+    undo.classList.add("d-none");
+    start.classList.remove("d-none");
+}
+
+
+function resett() {
+    counter.classList.remove("btn-success");
+    counter.classList.add("btn-outline-success");
+    count = 0;
+    counter.textContent = athkar[flag].count;
+}
+
+
+function athkarr() {
+    bs.textContent = athkar[flag].b;
+    text.textContent = athkar[flag].text;
+    counter.textContent = athkar[flag].count;
+}

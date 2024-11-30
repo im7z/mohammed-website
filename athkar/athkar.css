@@ -1,0 +1,63 @@
+html {
+    height: 100%;
+}
+
+
+body {
+    background-color: #dad7cd;
+    font-family: "Zain", sans-serif;
+    height: 100%;
+}
+
+.container {
+    background-color: #a3b18a;
+    padding: 60px 40px;
+    border-radius: 50% 20% / 10% 40%;
+}
+
+.athkar {
+    font-size: 25px;
+    text-wrap: balance;
+}
+
+.counter {
+    font-size: 25px;
+    padding: 5px 30px;
+}
+
+.reset{
+    border: 0;
+    background-color: #dad7cd;
+}
+
+.bs{
+    text-align: right;
+    font-weight: 600;
+    
+}
+
+.start{
+    padding: 10px 50px;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 150px;
+    background-color: #a3b18a;
+    border-radius: 10%;
+}
+
+.containerr {
+    display: flex;
+    align-items: center; /* Vertically center both items */
+    justify-content: center; /* Center the text in the middle of the container */
+    position: relative; /* Allows precise positioning */
+  }
+  
+  .undo {
+    position: absolute; /* Position the button independently */
+    left: 20px; /* Push the button to the left of the container */
+    padding: 6px 20px;
+    background-color: #a3b18a;
+    border-radius: 10%;
+  }
+  
+  

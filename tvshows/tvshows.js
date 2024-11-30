@@ -6,6 +6,7 @@ form.addEventListener("submit", async function (e) {
     try {
         const res = await axios.get(`https://api.tvmaze.com/singlesearch/shows?q=${name}&embed=episodes`);
         makeImage(res.data);
+        // console.dir(res.data)
     } catch (e) {
         const error = document.createElement('h2');
         error.textContent = `Show not found or an error occurred ${e}`;
@@ -14,8 +15,7 @@ form.addEventListener("submit", async function (e) {
     form.elements.query.value = '';
 })
 
-
-const makeImage = (shows) => {
+const makeImage = async (shows) => {
     const existing = document.querySelector('.con');
     if (existing) {
         existing.remove();
