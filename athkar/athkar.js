@@ -63,11 +63,10 @@ const athkar = [
 ];
 
 
-counter.addEventListener("click", () => {
-
-    if(counter.classList.contains("btn-outline-success")){
-    counter.classList.remove("btn-outline-success");
-    counter.classList.add("btn-success");
+function Counter() {
+    if (counter.classList.contains("btn-outline-success")) {
+        counter.classList.remove("btn-outline-success");
+        counter.classList.add("btn-success");
     }
 
     if (counter.textContent == athkar[flag].count) {
@@ -82,56 +81,47 @@ counter.addEventListener("click", () => {
         athkarr();
         resett();
     }
+}
 
-})
+
+counter.addEventListener("click", Counter);
+counter.addEventListener("touchstart", (event) => {
+    event.preventDefault(); 
+    Counter();
+});
 
 
 reset.addEventListener("click", resett)
 
 start.addEventListener("click", () => {
-
-    comeBack();
-
+    View();
     athkarr();
-
-
 })
 
 undo.addEventListener("click", () => {
-    goBack();
+    View();
     flag = 0;
     resett();
 })
 
 
 
-function comeBack() {
-    head.classList.remove("d-none");
-    h1.classList.remove("d-none");
-    h2.classList.remove("d-none");
-    counter.classList.remove("d-none");
-    reset.classList.remove("d-none");
-    container.classList.remove("d-none");
-    undo.classList.remove("d-none");
-    start.classList.add("d-none");
-}
-
-function goBack() {
-    head.classList.add("d-none");
-    h1.classList.add("d-none");
-    h2.classList.add("d-none");
-    counter.classList.add("d-none");
-    reset.classList.add("d-none");
-    container.classList.add("d-none");
-    undo.classList.add("d-none");
-    start.classList.remove("d-none");
+function View() {
+    head.classList.toggle("d-none");
+    h1.classList.toggle("d-none");
+    h2.classList.toggle("d-none");
+    counter.classList.toggle("d-none");
+    reset.classList.toggle("d-none");
+    container.classList.toggle("d-none");
+    undo.classList.toggle("d-none");
+    start.classList.toggle("d-none");
 }
 
 
 function resett() {
-    if(counter.classList.contains("btn-success")){
-    counter.classList.remove("btn-success");
-    counter.classList.add("btn-outline-success");
+    if (counter.classList.contains("btn-success")) {
+        counter.classList.remove("btn-success");
+        counter.classList.add("btn-outline-success");
     }
     count = 0;
     counter.textContent = athkar[flag].count;
@@ -139,6 +129,11 @@ function resett() {
 
 
 function athkarr() {
+    if (flag >= athkar.length) {
+        View();
+        flag = 0;
+        resett();
+    }
     bs.textContent = athkar[flag].b;
     text.textContent = athkar[flag].text;
     counter.textContent = athkar[flag].count;
