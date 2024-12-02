@@ -1,18 +1,21 @@
-html {
-    height: 95%;
-}
-
-
+html,
 body {
+    margin: 0;
+    padding: 0;
+    height: 80vh;
     background-color: #dad7cd;
     font-family: "Zain", sans-serif;
-    height: 100%;
 }
+
+/* section {
+
+} */
 
 .container {
     background-color: #a3b18a;
     padding: 60px 40px;
     border-radius: 30% 10%;
+    max-width: 80%;
 }
 
 .athkar {
@@ -26,18 +29,18 @@ body {
     padding: 0.5rem 2rem;
 }
 
-.reset{
+.reset {
     border: 0;
     background-color: #dad7cd;
 }
 
-.bs{
+.bs {
     text-align: right;
     font-weight: 600;
-    
+
 }
 
-.start{
+.start {
     padding: 0.6rem 3rem;
     text-align: center;
     font-size: 1.8rem;
@@ -50,25 +53,28 @@ body {
 
 .containerr {
     display: flex;
-    align-items: center; /* Vertically center both items */
-    justify-content: center; /* Center the text in the middle of the container */
-    position: relative; /* Allows precise positioning */
-  }
-  
-  .undo {
-    position: absolute; /* Position the button independently */
-    left: 1.25rem; /* Push the button to the left of the container */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 0 1.5rem;
+}
+
+.undo {
+    position: absolute;
+    /* Position the button independently */
+    left: 1.25rem;
+    /* Push the button to the left of the container */
     padding: 0.2rem 0.6rem;
     background-color: #a3b18a;
     border-radius: 0.3rem;
     border: 1px inset black;
-  }
-  
-  section{
-    height: 80vh;
-  }
+}
 
-  .start:hover, .undo:hover {
+
+
+.start:hover,
+.undo:hover {
     background-color: #7e9971;
     transform: scale(0.95);
     border: 1px solid #fff;
@@ -82,17 +88,19 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 30px 20px;
-        border-radius: 30% 10%;
+        max-width: 100%;
     }
+
     .athkar {
         font-size: 1.3rem;
     }
+
     .counter {
         font-size: 1.4rem;
         padding: 6px 23px;
     }
+
     .start {
-        padding: 10px 20px;
         font-size: 1.6rem;
     }
 }

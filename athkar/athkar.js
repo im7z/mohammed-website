@@ -84,21 +84,21 @@ function Counter() {
 }
 
 
-counter.addEventListener("click", Counter);
-counter.addEventListener("touchstart", (event) => {
-    event.preventDefault(); 
+// counter.addEventListener("pointerdown", Counter);
+counter.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
     Counter();
 });
 
 
-reset.addEventListener("click", resett)
+reset.addEventListener("pointerdown", resett)
 
-start.addEventListener("click", () => {
+start.addEventListener("pointerdown", () => {
     View();
     athkarr();
 })
 
-undo.addEventListener("click", () => {
+undo.addEventListener("pointerdown", () => {
     View();
     flag = 0;
     resett();
