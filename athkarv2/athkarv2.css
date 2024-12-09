@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Zain", sans-serif;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+
+
+body {
+    background-color: #fefae0;
+    height: 80%;
+    width: 100%
+}
+
+#section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+button {
+    background-color: #ccd5ae;
+    text-align: center;
+    padding: 1rem 5rem;
+    font-size: 1.5rem;
+    width: 300px;
+    color: black;
+    border: 2px solid black;
+    border-radius: 0.3rem;
+    transition: all 0.2s ease-in-out;
+}
+
+#morning{
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.none {
+    display: none;
+}
+
+header {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 2.3rem;
+    font-weight: 500;
+}
+
+#return {
+    width: 3rem;
+    padding: 0.1rem 0;
+    position: absolute;
+    left: 1rem;
+}
+
+hr {
+    opacity: 0.5;
+    border: 0.1rem solid #ccd5ae;
+}
+
+.con{
+    background-color: #b1b897;
+    padding: 60px 40px;
+    border-radius: 30% 10%;
+}
+
+
+
+.thkr {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    text-wrap: balance;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#counter {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    padding: 0.7rem 1rem;
+    border-radius: 100%;
+    width: 4rem;
+    font-weight: 600;
+}
+
+#reset {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.7rem;
+    padding: 0.7rem 1rem;
+    border-radius: 100%;
+    width: 4rem;
+    font-weight: 600;
+    border: none;
+    background-color: #fefae0;
+    position: absolute;
+    left: 6rem;
+}
+
+.notactive {
+    background-color: #fefae0;
+    border: 2px solid #788550;
+    color: #788550;
+    transition: all 0.2s ease-in-out;
+}
+
+.bs {
+    text-align: right;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+@media only screen and ( max-width:767px){
+   
+} 
+@media only screen and ( min-width:768px) and ( max-width:991px) {
+    #reset {
+        left: 24rem;
+    }
+    .bs {
+        font-size: 1.9rem
+    }
+    .thkr {
+        font-size: 1.9rem;
+    }
+    #counter {
+        font-size: 2rem;
+        padding: 1rem 1.2rem;
+        border-radius: 100%;
+        width: 5rem;
+    }
+}
+@media only screen and ( min-width:992px) and ( max-width:1199px) {
+    #reset {
+        left: 24rem;
+    }
+    .bs {
+        font-size: 1.9rem
+    }
+    .thkr {
+        font-size: 1.9rem;
+    }
+    #counter {
+        font-size: 2rem;
+        padding: 1rem 1.2rem;
+        border-radius: 100%;
+        width: 5rem;
+    }
+    .con{
+        width: 90%;
+    }
+}
+@media only screen and ( min-width:1200px){
+    #reset {
+        left: 24rem;
+    }
+    .bs {
+        font-size: 1.9rem
+    }
+    .thkr {
+        font-size: 1.9rem;
+    }
+    #counter {
+        font-size: 2rem;
+        padding: 1rem 1.2rem;
+        border-radius: 100%;
+        width: 5rem;
+    }
+} 

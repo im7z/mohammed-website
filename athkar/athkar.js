@@ -8,6 +8,7 @@ const h1 = document.querySelector(".h1");
 const h2 = document.querySelector(".h2");
 const container = document.querySelector(".container");
 const undo = document.querySelector(".undo");
+const currentHour = new Date().getHours();
 
 let flag = 0;
 let count = 0;
@@ -63,6 +64,12 @@ const athkar = [
 ];
 
 
+if (currentHour >= 5 && currentHour < 12) {
+    start.textContent = "اذكار الصباح";
+} else if (currentHour >= 15 && currentHour < 23) {
+    start.textContent = "اذكار المساء";
+}
+
 function Counter() {
     if (counter.classList.contains("btn-outline-success")) {
         counter.classList.remove("btn-outline-success");
@@ -84,21 +91,18 @@ function Counter() {
 }
 
 
-// counter.addEventListener("pointerdown", Counter);
-counter.addEventListener("pointerdown", (event) => {
-    event.preventDefault();
+counter.addEventListener("click", () => {
     Counter();
 });
 
+reset.addEventListener("click", resett)
 
-reset.addEventListener("pointerdown", resett)
-
-start.addEventListener("pointerdown", () => {
+start.addEventListener("click", () => {
     View();
     athkarr();
 })
 
-undo.addEventListener("pointerdown", () => {
+undo.addEventListener("click", () => {
     View();
     flag = 0;
     resett();
