@@ -199,7 +199,7 @@ function Counter() {
             athkar();
             resetf();
             counter.blur();
-        }, 500)
+        }, 400)
 
     }
 }
