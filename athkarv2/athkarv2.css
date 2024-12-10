@@ -3,7 +3,8 @@
     padding: 0;
     font-family: "Zain", sans-serif;
 }
-html{
+
+html {
     height: 100%;
     width: 100%;
 }
@@ -33,11 +34,22 @@ button {
     border: 2px solid black;
     border-radius: 0.3rem;
     transition: all 0.2s ease-in-out;
+
 }
 
-#morning{
+button:focus {
+    transform: scale(0.95);
+    transition: all 0.2s ease-in-out;
+}
+
+#morning {
     margin-top: 5rem;
     margin-bottom: 2rem;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.454);
+}
+
+#night {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.454);
 }
 
 .none {
@@ -61,6 +73,7 @@ h1 {
     padding: 0.1rem 0;
     position: absolute;
     left: 1rem;
+    box-shadow: 5px 1px 20px rgba(0, 0, 0, 0.454);
 }
 
 hr {
@@ -69,10 +82,11 @@ hr {
     transition: all 0.2s ease-in-out;
 }
 
-.con{
+.con {
     background-color: #b1b897;
     padding: 60px 40px;
     border-radius: 30% 10%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.455);
     transition: all 0.2s ease-in-out;
 }
 
@@ -100,6 +114,7 @@ footer {
     border-radius: 100%;
     width: 4rem;
     font-weight: 600;
+    box-shadow: 5px 4px 20px rgba(0, 0, 0, 0.454);
 }
 
 #reset {
@@ -132,65 +147,83 @@ footer {
 }
 
 
-@media only screen and ( max-width:767px){
+@media only screen and (max-width:767px) {
     body {
-        height: 78%;
+        height: 75%;
     }
-} 
-@media only screen and ( min-width:768px) and ( max-width:991px) {
+
+    #morning {
+        margin-top: 10rem;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
     #reset {
         left: 17rem;
     }
+
     .bs {
         font-size: 1.8rem
     }
+
     .thkr {
         font-size: 1.8rem;
     }
+
     #counter {
         font-size: 1.8rem;
         padding: 0.7rem 1rem;
         border-radius: 100%;
         width: 4rem;
     }
-    .con{
+
+    .con {
         width: 90%;
     }
 }
-@media only screen and ( min-width:992px) and ( max-width:1199px) {
+
+@media only screen and (min-width:992px) and (max-width:1199px) {
     #reset {
         left: 24rem;
     }
+
     .bs {
         font-size: 1.9rem
     }
+
     .thkr {
         font-size: 1.9rem;
     }
+
     #counter {
         font-size: 2rem;
         padding: 1rem 1.2rem;
         border-radius: 100%;
         width: 5rem;
     }
-    .con{
+
+    .con {
         width: 90%;
     }
 }
-@media only screen and ( min-width:1200px){
+
+@media only screen and (min-width:1200px) {
     #reset {
         left: 24rem;
     }
+
     .bs {
         font-size: 1.9rem
     }
+
     .thkr {
         font-size: 1.9rem;
     }
+
     #counter {
         font-size: 2rem;
         padding: 1rem 1.2rem;
         border-radius: 100%;
         width: 5rem;
     }
-} 
+}

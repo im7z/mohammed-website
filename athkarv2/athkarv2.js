@@ -54,7 +54,7 @@ const athkarMorning = [
     },
     {
         b: "",
-        text: "للّهُـمَّ إِنِّـي أَصْبَـحْتُ أُشْـهِدُك ، وَأُشْـهِدُ حَمَلَـةَ عَـرْشِـك ، وَمَلَائِكَتَكَ ، وَجَمـيعَ خَلْـقِك ، أَنَّـكَ أَنْـتَ اللهُ لا إلهَ إلاّ أَنْـتَ وَحْـدَكَ لا شَريكَ لَـك ، وَأَنَّ ُ مُحَمّـداً عَبْـدُكَ وَرَسـولُـك.",
+        text: "اللّهُـمَّ إِنِّـي أَصْبَـحْتُ أُشْـهِدُك ، وَأُشْـهِدُ حَمَلَـةَ عَـرْشِـك ، وَمَلَائِكَتَكَ ، وَجَمـيعَ خَلْـقِك ، أَنَّـكَ أَنْـتَ اللهُ لا إلهَ إلاّ أَنْـتَ وَحْـدَكَ لا شَريكَ لَـك ، وَأَنَّ ُ مُحَمّـداً عَبْـدُكَ وَرَسـولُـك.",
         count: 4
     },
     {
@@ -164,11 +164,14 @@ reset.addEventListener("click", resetf)
 
 morningB.addEventListener("click", () => {
     check = 1;
+    h1.textContent = "اذكار الصباح";
     View();
     athkar();
 })
+
 nightB.addEventListener("click", () => {
     check = 2;
+    h1.textContent = "اذكار المساء";
     View();
     athkar();
 })
@@ -176,6 +179,7 @@ nightB.addEventListener("click", () => {
 retur.addEventListener("click", () => {
     View();
     flag = 0;
+    h1.textContent = "";
     resetf();
 })
 
@@ -194,11 +198,13 @@ function Counter() {
     }
 
     if (count == athkarMorning[flag].count) {
+        counter.disabled = true;
         setTimeout(() => {
             flag += 1;
             athkar();
             resetf();
             counter.blur();
+            counter.disabled = false;
         }, 400)
 
     }
