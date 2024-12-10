@@ -205,7 +205,7 @@ function Counter() {
             resetf();
             counter.blur();
             counter.disabled = false;
-        }, 400)
+        }, 300)
 
     }
 }
