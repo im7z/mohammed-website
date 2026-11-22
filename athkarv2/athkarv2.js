@@ -32,6 +32,7 @@ let touchStartX = 0;
 let touchStartY = 0;
 let touchDirection = null;
 let touchStartedInText = false;
+let completionFeedbackShown = new Set();
 
 const progressStorageKey = "athkarV2Progress";
 
@@ -194,6 +195,7 @@ morningB.addEventListener("click", () => {
     currentAthkar = athkarMorning;
     flag = 0;
     progressCounts = Array(currentAthkar.length).fill(0);
+    completionFeedbackShown = new Set();
     h1.textContent = "اذكار الصباح";
     showReader();
     athkar();
@@ -204,6 +206,7 @@ nightB.addEventListener("click", () => {
     currentAthkar = athkarNight;
     flag = 0;
     progressCounts = Array(currentAthkar.length).fill(0);
+    completionFeedbackShown = new Set();
     h1.textContent = "اذكار المساء";
     showReader();
     athkar();
@@ -306,6 +309,10 @@ function Counter() {
         progressCounts[flag] = count;
         updateCounterDisplay();
         saveProgress();
+
+        if (count === currentAthkar[flag].count) {
+            triggerDhikrCompletionFeedback();
+        }
     }
 
     if (count === currentAthkar[flag].count) {
@@ -418,6 +425,34 @@ function cancelAutomaticAdvance() {
     }
 }
 
+function triggerDhikrCompletionFeedback() {
+    if (completionFeedbackShown.has(flag)) {
+        return;
+    }
+
+    completionFeedbackShown.add(flag);
+    let vibrationTriggered = false;
+
+    if (typeof navigator.vibrate === "function") {
+        try {
+            vibrationTriggered = navigator.vibrate(50) !== false;
+        } catch (error) {
+            vibrationTriggered = false;
+        }
+    }
+
+    if (!vibrationTriggered) {
+        con.classList.remove("completion-feedback");
+        void con.offsetWidth;
+        con.classList.add("completion-feedback");
+        con.addEventListener(
+            "animationend",
+            () => con.classList.remove("completion-feedback"),
+            { once: true }
+        );
+    }
+}
+
 function saveProgress() {
     if (!currentAthkar.length || flag >= currentAthkar.length) {
         return;
@@ -480,6 +515,11 @@ function restoreProgress() {
             ? Math.min(Math.max(savedCount, 0), entry.count)
             : 0;
     });
+    completionFeedbackShown = new Set(
+        progressCounts
+            .map((savedCount, index) => savedCount >= currentAthkar[index].count ? index : null)
+            .filter(index => index !== null)
+    );
 
     h1.textContent = isMorning ? "اذكار الصباح" : "اذكار المساء";
     showReader();
@@ -494,7 +534,10 @@ function updateCounterDisplay() {
         segment.classList.toggle("filled", index < count);
     });
 
-    counter.setAttribute("aria-label", `تم ${count} من ${requiredCount}`);
+    counter.setAttribute(
+        "aria-label",
+        `تم ${toArabicIndic(count)} من ${formatRepetitionLabel(requiredCount)}`
+    );
 }
 
 function renderCounter() {
@@ -507,7 +550,7 @@ function renderCounter() {
 
     counterProgress.replaceChildren(...segments);
     counterProgress.style.setProperty("--segment-count", requiredCount);
-    counterTotal.textContent = requiredCount;
+    counterTotal.textContent = formatRepetitionLabel(requiredCount);
     updateCounterDisplay();
 }
 
@@ -519,6 +562,22 @@ function updateNavigationButtons() {
 
 function toArabicIndic(number) {
     return String(number).replace(/\d/g, digit => "٠١٢٣٤٥٦٧٨٩"[digit]);
+}
+
+function formatRepetitionLabel(requiredCount) {
+    if (requiredCount === 1) {
+        return "مرة واحدة";
+    }
+
+    if (requiredCount === 2) {
+        return "مرتان";
+    }
+
+    if (requiredCount >= 3 && requiredCount <= 10) {
+        return `${toArabicIndic(requiredCount)} مرات`;
+    }
+
+    return `${toArabicIndic(requiredCount)} مرة`;
 }
 
 function createAyahOrnament(number, accessibleLabel) {
@@ -614,7 +673,7 @@ function athkar() {
         bs.textContent = athkarMorning[flag].b;
         renderDhikrText(athkarMorning[flag]);
         dhikrCopy.scrollTop = 0;
-        dhikrPosition.textContent = `الذكر ${flag + 1} من ${athkarMorning.length}`;
+        dhikrPosition.textContent = `الذكر ${toArabicIndic(flag + 1)} من ${toArabicIndic(athkarMorning.length)}`;
         renderCounter();
         updateNavigationButtons();
         saveProgress();
@@ -627,7 +686,7 @@ function athkar() {
         bs.textContent = athkarNight[flag].b;
         renderDhikrText(athkarNight[flag]);
         dhikrCopy.scrollTop = 0;
-        dhikrPosition.textContent = `الذكر ${flag + 1} من ${athkarNight.length}`;
+        dhikrPosition.textContent = `الذكر ${toArabicIndic(flag + 1)} من ${toArabicIndic(athkarNight.length)}`;
         renderCounter();
         updateNavigationButtons();
         saveProgress();

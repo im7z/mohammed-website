@@ -405,7 +405,7 @@ body.reader-active #card-stage {
     margin-bottom: auto;
     font-size: clamp(1.25rem, 1.05rem + 1vw, 1.8rem);
     font-weight: 500;
-    line-height: 1.8;
+    line-height: 1.9;
     overflow-wrap: anywhere;
     text-wrap: pretty;
     transition: all 0.2s ease-in-out;
@@ -414,16 +414,20 @@ body.reader-active #card-stage {
 .con.quran-entry .thkr {
     padding-block: 0.15em;
     font-family: "Amiri Quran", "Amiri", "Traditional Arabic", serif;
-    font-size: clamp(1.3rem, 1.08rem + 1.1vw, 1.9rem);
+    font-size: clamp(1.35rem, 1.12rem + 1.15vw, 1.98rem);
     font-weight: 400;
-    line-height: 2.05;
+    line-height: 2.1;
+    color: var(--color-on-active);
+    font-synthesis: none;
 }
 
 .bs.quran-opening {
     font-family: "Amiri Quran", "Amiri", "Traditional Arabic", serif;
-    font-size: clamp(1.25rem, 1.05rem + 1vw, 1.75rem);
+    font-size: clamp(1.29rem, 1.08rem + 1.04vw, 1.82rem);
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.9;
+    color: var(--color-on-active);
+    font-synthesis: none;
 }
 
 .ayah-number {
@@ -615,6 +619,10 @@ body.reader-active footer {
     animation: slide-from-top 0.28s ease-out;
 }
 
+.con.completion-feedback {
+    animation: completion-feedback 0.28s ease-out;
+}
+
 @keyframes slide-from-bottom {
     from {
         opacity: 0.35;
@@ -626,6 +634,12 @@ body.reader-active footer {
     from {
         opacity: 0.35;
         transform: translateY(-2rem);
+    }
+}
+
+@keyframes completion-feedback {
+    50% {
+        box-shadow: 0 12px 32px var(--color-shadow), 0 0 0 0.22rem var(--color-accent);
     }
 }
 
@@ -677,8 +691,9 @@ body.reader-active footer {
 
 #counter-total {
     display: block;
-    font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.7rem);
-    line-height: 1;
+    font-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 #reset {
