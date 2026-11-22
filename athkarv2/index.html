@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أذكاري</title>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- css file -->
+    <link rel="stylesheet" href="athkarv2.css">
+</head>
+
+<body>
+
+    <header>
+        <button id="return" class="none" aria-label="العودة إلى الصفحة الرئيسية">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M9 5L16 12L9 19" />
+            </svg>
+        </button>
+        <h1 class="none"></h1>
+        <span class="header-balance" aria-hidden="true"></span>
+    </header>
+    <hr class="none" id="hr1">
+    <section id="section">
+        <div id="home-screen">
+            <div class="home-intro">
+                <h2 class="home-title">أذكاري</h2>
+                <p class="home-subtitle">رفيقك اليومي لقراءة الأذكار</p>
+            </div>
+            <div class="home-choices">
+                <button id="morning" class="home-choice">
+                    <span class="home-choice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2V4M12 20V22M4.93 4.93L6.34 6.34M17.66 17.66L19.07 19.07M2 12H4M20 12H22M4.93 19.07L6.34 17.66M17.66 6.34L19.07 4.93" />
+                        </svg>
+                    </span>
+                    <span class="home-choice-label">أذكار الصباح</span>
+                    <span class="home-choice-chevron" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" focusable="false"><path d="M10 3L5 8L10 13" /></svg>
+                    </span>
+                </button>
+                <button id="night" class="home-choice">
+                    <span class="home-choice-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M20 15.2A8.5 8.5 0 0 1 8.8 4A8.5 8.5 0 1 0 20 15.2Z" />
+                        </svg>
+                    </span>
+                    <span class="home-choice-label">أذكار المساء</span>
+                    <span class="home-choice-chevron" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" focusable="false"><path d="M10 3L5 8L10 13" /></svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div id="card-stage" class="none">
+            <div class="con">
+                <button id="previous-dhikr" class="card-arrow card-arrow-previous" aria-label="الذكر السابق">
+                    <svg viewBox="0 0 16 8" aria-hidden="true" focusable="false">
+                        <path d="M1 7L8 1L15 7" />
+                    </svg>
+                </button>
+                <div class="card-toolbar">
+                    <p id="dhikr-position"></p>
+                    <button id="reset" class="none" aria-label="إعادة ضبط العداد"><svg
+                            xmlns="http://www.w3.org/2000/svg" height="18" width="18" viewBox="0 0 512 512"
+                            aria-hidden="true">
+                            <path
+                                d="M48.5 224L40 224c-13.3 0-24-10.7-24-24L16 72c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2L98.6 96.6c87.6-86.5 228.7-86.2 315.8 1c87.5 87.5 87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3c-62.2-62.2-162.7-62.5-225.3-1L185 183c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8L48.5 224z" />
+                        </svg></button>
+                </div>
+                <div class="dhikr-copy">
+                    <h3 class="bs"></h3>
+                    <p class="thkr"></p>
+                </div>
+                <button id="next-dhikr" class="card-arrow card-arrow-next" aria-label="الذكر التالي">
+                    <svg viewBox="0 0 16 8" aria-hidden="true" focusable="false">
+                        <path d="M1 1L8 7L15 1" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="completion" class="none">
+            <span class="completion-icon" aria-hidden="true">✓</span>
+            <h2>أتممت الأذكار</h2>
+            <p>تقبّل الله منك</p>
+            <button id="completion-home">العودة إلى الصفحة الرئيسية</button>
+        </div>
+    </section>
+    <hr class="none" id="hr2">
+    <footer>
+        <button id="counter" class="none notactive">
+            <span id="counter-progress" aria-hidden="true"></span>
+            <span id="counter-total"></span>
+        </button>
+    </footer>
+
+
+
+    <!-- js file -->
+    <script src="athkarv2.js"></script>
+</body>
+
+</html>
