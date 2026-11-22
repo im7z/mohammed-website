@@ -30,8 +30,8 @@ let advanceTimer = null;
 let progressCounts = [];
 let touchStartX = 0;
 let touchStartY = 0;
-let touchStartTime = 0;
 let touchDirection = null;
+let touchStartedInText = false;
 
 const progressStorageKey = "athkarV2Progress";
 
@@ -233,37 +233,39 @@ nextDhikr.addEventListener("click", () => {
 })
 
 con.addEventListener("touchstart", event => {
+    if (event.touches.length !== 1) {
+        touchDirection = null;
+        touchStartedInText = false;
+        return;
+    }
+
     const touch = event.touches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
-    touchStartTime = Date.now();
     touchDirection = null;
+    touchStartedInText = Boolean(event.target.closest?.(".dhikr-copy"));
 }, { passive: true })
 
 con.addEventListener("touchmove", event => {
+    if (event.touches.length !== 1) {
+        return;
+    }
+
     const touch = event.touches[0];
     const distanceX = touch.clientX - touchStartX;
     const distanceY = touch.clientY - touchStartY;
-    const elapsedTime = Math.max(Date.now() - touchStartTime, 1);
-    const verticalSpeed = Math.abs(distanceY) / elapsedTime;
 
-    if (!touchDirection && (Math.abs(distanceX) > 10 || Math.abs(distanceY) > 10)) {
-        const isVertical = Math.abs(distanceY) > Math.abs(distanceX) * 1.25;
-        const pageBottom = window.scrollY + window.innerHeight;
-        const canScrollPage = distanceY < 0
-            ? pageBottom < document.documentElement.scrollHeight - 2
-            : window.scrollY > 2;
-        const canScrollText = distanceY < 0
-            ? dhikrCopy.scrollTop + dhikrCopy.clientHeight < dhikrCopy.scrollHeight - 2
-            : dhikrCopy.scrollTop > 2;
-        const canScrollInGestureDirection = canScrollText || canScrollPage;
+    if (!touchDirection && Math.abs(distanceY) > 6) {
+        const isVertical = Math.abs(distanceY) > Math.abs(distanceX) * 1.15;
 
-        if (isVertical && canScrollInGestureDirection) {
-            touchDirection = "scroll";
-        } else if (isVertical && Math.abs(distanceY) >= 30 && verticalSpeed >= 0.65) {
-            touchDirection = "navigation";
-        } else if (!isVertical || elapsedTime > 180) {
-            touchDirection = "scroll";
+        if (!isVertical) {
+            touchDirection = "other";
+        } else {
+            const canScrollText = touchStartedInText && (distanceY < 0
+                ? dhikrCopy.scrollTop + dhikrCopy.clientHeight < dhikrCopy.scrollHeight - 2
+                : dhikrCopy.scrollTop > 2);
+
+            touchDirection = canScrollText ? "scroll" : "navigation";
         }
     }
 
@@ -273,7 +275,11 @@ con.addEventListener("touchmove", event => {
 }, { passive: false })
 
 con.addEventListener("touchend", event => {
-    if (touchDirection !== "navigation") {
+    const completedDirection = touchDirection;
+    touchDirection = null;
+    touchStartedInText = false;
+
+    if (completedDirection !== "navigation") {
         return;
     }
 
@@ -281,6 +287,11 @@ con.addEventListener("touchend", event => {
     if (Math.abs(distanceY) >= 70) {
         navigateDhikr(distanceY < 0 ? 1 : -1, distanceY < 0 ? "next" : "previous");
     }
+})
+
+con.addEventListener("touchcancel", () => {
+    touchDirection = null;
+    touchStartedInText = false;
 })
 
 

@@ -40,11 +40,15 @@ body {
 }
 
 body.reader-active {
+    position: fixed;
+    inset: 0;
     height: 100vh;
     height: 100svh;
     height: 100dvh;
     min-height: 0;
+    width: 100%;
     overflow: hidden;
+    overscroll-behavior: none;
 }
 
 #section {
@@ -306,6 +310,7 @@ hr {
     box-sizing: border-box;
     height: min(100%, 38rem);
     min-height: 0;
+    overscroll-behavior: none;
 }
 
 body.reader-active #card-stage {
@@ -351,7 +356,8 @@ body.reader-active #card-stage {
     border-radius: 1.25rem;
     box-shadow: 0 12px 32px var(--color-shadow);
     transition: all 0.2s ease-in-out;
-    touch-action: pan-y;
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior: none;
 }
 
 .con.none {
@@ -389,7 +395,7 @@ body.reader-active #card-stage {
     scrollbar-width: thin;
     scrollbar-color: var(--color-active) transparent;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
+    touch-action: pan-y pinch-zoom;
 }
 
 
